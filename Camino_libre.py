@@ -98,7 +98,10 @@ plt.plot(t0,x_media,'.',label='Media')
 plt.plot(t0,x_var,label='varianza')
 plt.legend()
 
-#%%
+#%%Voy a recortar los ultimos puntos de x_var porque son lineas rectas (evidentemente habia una saturacion en el sensor). Hago lo mismo en t0 para poder graficar.
+#Una forma mas elegante de hacer esto escortar los .csv directamente.
+#Luego voy a hacer un ajuste lineal a la varianza. Con un set de datos mucho mayor este ajuste deberia ser mas optimo.
+# Teoricamente var(t)=c*t
 from scipy.optimize import curve_fit
 #ajustar la varianza
 ydata=np.array([ 0.        ,  0.09916947,  0.17628986,  0.26309535,  0.38497331,
